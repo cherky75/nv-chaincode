@@ -205,25 +205,26 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 // Query - read a variable from chaincode state - (aka read)
 // ============================================================================================================================
 func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+	if function == "query" {
+		if len(args) != 2 {
+			return nil, errors.New("Incorrect number of arguments passed")
+		}
 
-	if len(args) != 2 {
-		return nil, errors.New("Incorrect number of arguments passed")
-	}
+		if args[0] != "getFIDetails" && args[0] != "getTxs" && args[0] != "getNVAccounts" {
+			return nil, errors.New("Invalid query function name.")
+		}
 
-	if args[0] != "getFIDetails" && args[0] != "getTxs" && args[0] != "getNVAccounts" {
-		return nil, errors.New("Invalid query function name.")
+		if args[0] == "getFIDetails" {
+			return t.getFinInstDetails(stub, args[1])
+		}
+		if args[0] == "getNVAccounts" {
+			return t.getNVAccounts(stub, args[1])
+		}
+		if args[0] == "getTxs" {
+			return t.getTxs(stub, args[1])
+		}
+		return nil, nil
 	}
-
-	if args[0] == "getFIDetails" {
-		return t.getFinInstDetails(stub, args[1])
-	}
-	if args[0] == "getNVAccounts" {
-		return t.getNVAccounts(stub, args[1])
-	}
-	if args[0] == "getTxs" {
-		return t.getTxs(stub, args[1])
-	}
-
 	return nil, nil
 }
 
