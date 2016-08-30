@@ -205,7 +205,7 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 // Query - read a variable from chaincode state - (aka read)
 // ============================================================================================================================
 func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
-	if function == "query" {
+	if function == "read" {
 		if len(args) != 2 {
 			return nil, errors.New("Incorrect number of arguments passed")
 		}
