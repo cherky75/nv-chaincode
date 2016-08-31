@@ -90,81 +90,82 @@ func main() {
 // ============================================================================================================================
 func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 
-	var err error
+	/*
+			var err error
 
-	//BANK A
-	var fid FinancialInst
-	fid.Owner = BANKA
+		//BANK A
+			var fid FinancialInst
+			fid.Owner = BANKA
 
-	var actAB Account
-	actAB.Holder = BANKB
-	actAB.Currency = "USD"
-	actAB.CashBalance = 250000.00
-	fid.Accounts = append(fid.Accounts, actAB)
-	var actAC Account
-	actAC.Holder = BANKC
-	actAC.Currency = "USD"
-	actAC.CashBalance = 360000.00
-	fid.Accounts = append(fid.Accounts, actAC)
+			var actAB Account
+			actAB.Holder = BANKB
+			actAB.Currency = "USD"
+			actAB.CashBalance = 250000.00
+			fid.Accounts = append(fid.Accounts, actAB)
+			var actAC Account
+			actAC.Holder = BANKC
+			actAC.Currency = "USD"
+			actAC.CashBalance = 360000.00
+			fid.Accounts = append(fid.Accounts, actAC)
 
-	jsonAsBytes, _ := json.Marshal(fid)
-	err = stub.PutState("BANKA", jsonAsBytes)
-	if err != nil {
-		fmt.Println("Error creating account " + BANKA)
-		return nil, err
-	}
+			jsonAsBytes, _ := json.Marshal(fid)
+			err = stub.PutState("BANKA", jsonAsBytes)
+			if err != nil {
+				fmt.Println("Error creating account " + BANKA)
+				return nil, err
+			}
 
-	// BANK B
-	var fid2 FinancialInst
-	fid2.Owner = BANKB
+			// BANK B
+			var fid2 FinancialInst
+			fid2.Owner = BANKB
 
-	var actBA Account
-	actBA.Holder = BANKA
-	actBA.Currency = "AUD"
-	actBA.CashBalance = actAB.CashBalance * USDAUD
-	fid2.Accounts = append(fid2.Accounts, actBA)
-	var actBC Account
-	actBC.Holder = BANKC
-	actBC.Currency = "AUD"
-	actBC.CashBalance = 120000.00
-	fid2.Accounts = append(fid2.Accounts, actBC)
+			var actBA Account
+			actBA.Holder = BANKA
+			actBA.Currency = "AUD"
+			actBA.CashBalance = actAB.CashBalance * USDAUD
+			fid2.Accounts = append(fid2.Accounts, actBA)
+			var actBC Account
+			actBC.Holder = BANKC
+			actBC.Currency = "AUD"
+			actBC.CashBalance = 120000.00
+			fid2.Accounts = append(fid2.Accounts, actBC)
 
-	jsonAsBytes, _ = json.Marshal(fid2)
-	err = stub.PutState("BANKB", jsonAsBytes)
-	if err != nil {
-		fmt.Println("Error creating account " + BANKB)
-		return nil, err
-	}
+			jsonAsBytes, _ = json.Marshal(fid2)
+			err = stub.PutState("BANKB", jsonAsBytes)
+			if err != nil {
+				fmt.Println("Error creating account " + BANKB)
+				return nil, err
+			}
 
-	// BANK C
-	var fid3 FinancialInst
-	fid3.Owner = BANKC
+			// BANK C
+			var fid3 FinancialInst
+			fid3.Owner = BANKC
 
-	var actCA Account
-	actCA.Holder = BANKA
-	actCA.Currency = "EUR"
-	actCA.CashBalance = actAC.CashBalance * USDEUR
-	fid3.Accounts = append(fid3.Accounts, actCA)
-	var actCB Account
-	actCB.Holder = BANKB
-	actCB.Currency = "EUR"
-	actCB.CashBalance = actBC.CashBalance * AUDEUR
-	fid3.Accounts = append(fid3.Accounts, actCB)
+			var actCA Account
+			actCA.Holder = BANKA
+			actCA.Currency = "EUR"
+			actCA.CashBalance = actAC.CashBalance * USDEUR
+			fid3.Accounts = append(fid3.Accounts, actCA)
+			var actCB Account
+			actCB.Holder = BANKB
+			actCB.Currency = "EUR"
+			actCB.CashBalance = actBC.CashBalance * AUDEUR
+			fid3.Accounts = append(fid3.Accounts, actCB)
 
-	jsonAsBytes, _ = json.Marshal(fid3)
-	err = stub.PutState("BANKC", jsonAsBytes)
-	if err != nil {
-		fmt.Println("Error creating account " + BANKC)
-		return nil, err
-	}
+			jsonAsBytes, _ = json.Marshal(fid3)
+			err = stub.PutState("BANKC", jsonAsBytes)
+			if err != nil {
+				fmt.Println("Error creating account " + BANKC)
+				return nil, err
+			}
 
-	var transactions AllTransactions
-	jsonAsBytes, _ = json.Marshal(transactions)
-	err = stub.PutState("allTx", jsonAsBytes)
-	if err != nil {
-		return nil, err
-	}
-
+			var transactions AllTransactions
+			jsonAsBytes, _ = json.Marshal(transactions)
+			err = stub.PutState("allTx", jsonAsBytes)
+			if err != nil {
+				return nil, err
+			}
+	*/
 	return nil, nil
 }
 
